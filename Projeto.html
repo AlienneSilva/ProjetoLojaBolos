@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Bolos Tarsa</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+
+    <div id="TALASSA.png">
+        <img src="TALASSA.png" align="right">
+    </div>
+
+</head>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+
+<body>
+
+    <h1>Bolos Tarsa</h1>
+    <h2>O Melhor Bolo do Mundo</h2>
+    <h3>Faça seu pedido aqui!</h3>
+    <br></br>
+    <hr>
+    </hr>
+    <br></br>
+    <br></br>
+
+    <form action="aliennesilvati@gmail.com" name="pedido" method="post">
+        
+        Digite seu nome e sobrenome: <input type="text" id="nome" name="nome" placeholder="Nome Sobrenome" required>
+        <p></p>
+        Digite seu Telefone: <input type="text" id="tel" name="tel" placeholder="(00) 00000-0000" maxlength="11" required>
+        <p></p>
+        Digite seu email<input type="email" name="_replyto" placeholder="exemple@exemple.com">
+        <p></p>
+        Escolha o sabor: <select name="sabor">
+            <option value="naoSelecionado">Selecione</option>
+            <option value="chocolate">Chocolate</option>
+            <option value="morango">Morango</option>
+            <option value="ninho">Ninho com Morango</option>
+            <option value="brigadeiro">Brigadeiro</option>
+        </select><br></br>
+        Escolha o tamanho: <select name="tam">
+            <option value="naoSelecionado">Selecione</option>
+            <option value="p">Pequeno - 1Kg</option>
+            <option value="m">Médio - 2kg</option>
+            <option value="g">Grande - 3kg</option>
+            <option value="gg">Extra Grande - 4kg</option>
+        </select>
+        <br></br>
+
+        <legend>Escolha o Recheio e a Massa:</legend>
+        <p></p>
+
+        <input type="checkbox" name="chocolate" value="chocolate">"Massa Baunilha com Recheio de Chocolate"<br></br>
+        <input type="checkbox" name="choco" value="choco">"Massa Chocolate com Recheio de Chocolate"<br></br>
+        <input type="checkbox" name="morango" value="morango">"Massa Baunilha com Recheio de Morango"<br></br>
+        <input type="checkbox" name="ninho" value="ninho">"Massa Baunilha com Recheio de Morango, polvilhado com
+        Ninho"<br></br>
+        <input type="checkbox" name="brigadeiro" value="brigadeiro">"Massa Chocolate com Recheio de Brigadeiro"<br></br>
+        <div>
+            Data de Retirada: <input id="date" type="date">
+        </div>
+
+        <fieldset>
+            <legend>Observações</legend>
+            <textarea name="obs" cols="60" rows="7"
+                placeholder="Digite aqui as observações sobre o pedido..."></textarea>
+        </fieldset>
+        <input type="submit" name="submit" value="Enviar" onclick="mensage()" />
+        <input type="reset" name="excluir" value="Excluir" />
+
+    </form>
+
+    <script language="JavaScript">
+        var enviar;
+        
+        function mensage() {
+            window.alert('Seu pedido foi encaminhado com sucesso, aguarde nosso contato telefônico!')
+        }
+       
+    </script>
+
+</body>
+
+</html>
