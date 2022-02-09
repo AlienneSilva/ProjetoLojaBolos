@@ -1,0 +1,27 @@
+body {
+    Background-color:grey;
+    }
+    h1{
+    font-size: 100px;
+    color:pink;
+    text-align: center;
+    border-style: solid; ;
+    border-width: 3px;
+    border-color: white;
+    }
+    h2{
+    color:azure;
+    text-align: center; 
+    }
+    h3{
+        text-align: center;        
+    }
+    p{
+    margin-left:50px;
+    }
+    img{
+        width: 90px;        
+    }
+    div.box{
+        width: 200px;
+    }
