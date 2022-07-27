@@ -1,20 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 
 <head>
-    <title> Bolos Tarsa</title>
-    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <div id="TALASSA.png">
-        <img src="TALASSA.png" align="right">
-    </div>
+    <title> Bolos Tarsa</title>
 
 </head>
 <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
 
 <body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid w3-panel">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#home">Bolos Tarsa</a>
+                <h2>O Melhor Bolo do Mundo</h2>
+                <header class="w3-display-topright" id="home">
+                    <img src="TALASSA.png" class="w3-image" alt="talassa" style="width: 40%">
+                </header>
+            </div>                
+            <!-- Deixando itens de navegação do lado direito e Escondendo em telas pequenas them on small screens -->
+            
+                <ul class="nav navbar-nav">
+                    <li class="w3-dropdown-hover">
+                        <a class="w3-dropdown-hover" data-toggle="dropdown" href="#tipos">Tipos de Bolos
+                            <span class="fa fa-caret-down"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#ch">Chocolate</a></li>
+                            <li><a href="#mg">Morango</a></li>
+                            <li><a href="#nm">Ninho com Morango/a></li>
+                            <li><a href="#brig">Brigadeiro</a></li>
+                    <div class="container-fluid">
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li><a href="#contato"><span class="glyphicon glyphicon-envelope"> </span> Pedido</a></li>
+                        </ul>
+                    </div>
+        </div>
+    </nav>
+    
 
-    <h1>Bolos Tarsa</h1>
     <h2>O Melhor Bolo do Mundo</h2>
     <h3>Faça seu pedido aqui!</h3>
     <br></br>
@@ -24,10 +57,11 @@
     <br></br>
 
     <form action="aliennesilvati@gmail.com" name="pedido" method="post">
-        
+
         Digite seu nome e sobrenome: <input type="text" id="nome" name="nome" placeholder="Nome Sobrenome" required>
         <p></p>
-        Digite seu Telefone: <input type="text" id="tel" name="tel" placeholder="(00) 00000-0000" maxlength="11" required>
+        Digite seu Telefone: <input type="text" id="tel" name="tel" placeholder="(00) 00000-0000" maxlength="11"
+            required>
         <p></p>
         Digite seu email<input type="email" name="_replyto" placeholder="exemple@exemple.com">
         <p></p>
@@ -50,12 +84,14 @@
         <legend>Escolha o Recheio e a Massa:</legend>
         <p></p>
 
-        <input type="checkbox" name="chocolate" value="chocolate">"Massa Baunilha com Recheio de Chocolate"<br></br>
+        <input type="checkbox" name="chocolate" value="chocolate">"Massa Baunilha com Recheio de
+        Chocolate"<br></br>
         <input type="checkbox" name="choco" value="choco">"Massa Chocolate com Recheio de Chocolate"<br></br>
         <input type="checkbox" name="morango" value="morango">"Massa Baunilha com Recheio de Morango"<br></br>
         <input type="checkbox" name="ninho" value="ninho">"Massa Baunilha com Recheio de Morango, polvilhado com
         Ninho"<br></br>
-        <input type="checkbox" name="brigadeiro" value="brigadeiro">"Massa Chocolate com Recheio de Brigadeiro"<br></br>
+        <input type="checkbox" name="brigadeiro" value="brigadeiro">"Massa Chocolate com Recheio de
+        Brigadeiro"<br></br>
         <div>
             Data de Retirada: <input id="date" type="date">
         </div>
@@ -72,11 +108,11 @@
 
     <script language="JavaScript">
         var enviar;
-        
+
         function mensage() {
             window.alert('Seu pedido foi encaminhado com sucesso, aguarde nosso contato telefônico!')
         }
-       
+
     </script>
 
 </body>
