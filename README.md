@@ -10,5 +10,5 @@
 <p>- O projeto inclui três partes principais, localizadas em partes distintas, sendo cada uma responsável por um aspecto do sistema.</p>
 
 <p> - backend/: Ainda será desenvolvido.</p>
-<p> **Autor**</p>
-<p> -Aliene Silva</p>
+**Autor**
+-Alienne Silva
