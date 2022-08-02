@@ -5,7 +5,7 @@ Este recurso contém o código fonte para o Projeto de uma loja de Bolos.
 O projeto é feito com:
 - JavaScript como linguagem de programação para front-end.
 Partes do projeto
-> - O projeto inclui três partes principais, localizadas em partes distintas, sendo cada uma responsável por um aspecto do sistema.
-- backend/: Ainda será desenvolvido.
+- O projeto inclui três partes principais, localizadas em partes distintas, sendo cada uma responsável por um aspecto do sistema.
+- backend/: Ainda será desenvolvido.</br>
  **Autor**
 -Alienne Silva
