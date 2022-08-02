@@ -5,7 +5,8 @@ Este recurso contém o código fonte para o Projeto de uma loja de Bolos.
 
 ## Ferramentas e tecnologia
 
-<p>O projeto é feito com:
+<p>O projeto é feito com:</br>
+
 - JavaScript como linguagem de programação para front-end.</br>
 
 <p>Partes do projeto
@@ -16,4 +17,4 @@ Este recurso contém o código fonte para o Projeto de uma loja de Bolos.
 
 **Autor**</br>
 
--Alienne Silva
+- Alienne Silva
