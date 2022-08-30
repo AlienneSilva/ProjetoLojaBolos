@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="index.js" type="module" defer></script>     
+   
+
+    <title> Bolos Tarsa</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <script>
+    
+        function limpa_formulário_cep() {
+                //Limpa valores do formulário de cep.
+                document.getElementById('rua').value=("");
+                document.getElementById('bairro').value=("");
+                document.getElementById('cidade').value=("");
+                document.getElementById('uf').value=("");
+               
+        }
+    
+        function meu_callback(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('rua').value=(conteudo.logradouro);
+                document.getElementById('bairro').value=(conteudo.bairro);
+                document.getElementById('cidade').value=(conteudo.localidade);
+                document.getElementById('uf').value=(conteudo.uf);
+               
+            } //end if.
+            else {
+                //CEP não Encontrado.
+                limpa_formulário_cep();
+                alert("CEP não encontrado.");
+            }
+        }
+            
+        function pesquisacep(valor) {
+    
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
+    
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+    
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+    
+                //Valida o formato do CEP.
+                if(validacep.test(cep)) {
+    
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('rua').value="...";
+                    document.getElementById('bairro').value="...";
+                    document.getElementById('cidade').value="...";
+                    document.getElementById('uf').value="...";
+                 
+    
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+    
+                    //Sincroniza com o callback.
+                    script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+    
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+    
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep();
+            }
+        };
+    
+        </script>
+
+</head>
+
+
+<body>
+    <nav class="navbar">
+        <div class="w3-container w3-center w3-biege">
+            <div class="display-container">
+                <img src="Imagens\TALASSA.png" class="w3-display-topleft w3-container" alt="talassa" style="width:13%">
+            </div>
+            <h1><strong>Bolos Tarsa</strong></h1>
+            <h2><u>O melhor Bolo do mundo</u></h2>
+            <!-- Deixando itens de navegação do lado direito e Escondendo em telas pequenas them on small screens -->
+            <ul class="nav navbar-nav w3-right ">
+                <!--coloca no final o menu-->
+                <li><a class="w3-white" href="#contato"><span class="glyphicon glyphicon-envelope w3-white"> </span>
+                        Pedido</a></li>
+            </ul>
+            <ul class="nav navbar-nav w3-right">
+                <!--coloca no final o menu-->
+                <li class="w3-right">
+                    <a class="w3-dropdown w3-white" data-toggle="dropdown" href="#tipos">Tipos de Bolos
+                        <span class="fa fa-caret-down"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#ch">Chocolate</a></li>
+                        <li><a href="#mg">Morango</a></li>
+                        <li><a href="#nm">Ninho com Morango/a></li>
+                        <li><a href="#brig">Brigadeiro</a></li>
+                    </ul>
+                </li>
+            </ul>
+            </span>
+        </div>
+    </nav>
+
+    <div class="w3-center w3-sans-serif">
+        <h2><strong><u>Selecione um tipo de bolo e confira o recheio!</u></strong></h2>
+    </div>
+    <div class="w3-row w3-padding-64" id="ch">
+        <div class="w3-col m6 w3-padding-large w3-hide-small">
+            <img src="Imagens\ch.jpg" class="w3-round w3-image" alt="Table Setting" border="0"></a>
+        </div>
+        <div class="w3-col m6 w3-padding-large ">
+            <h1>Bolo de Chocolate</h1></br>
+            <p class="w3-large">Massa Chocolate com um delicioso Recheio de mouse de Chocolate!!</p>
+            <p>Temos nos tamanhos:</p>
+            <li>Pequeno - 1Kg</li>
+            <li>Médio - 2kg</li>
+            <li>Grande - 3kg</li>
+            <li>Extra Grande - 4kg</li>
+        </div>
+    </div>
+
+    <div class="w3-row w3-padding-64" id="mg">
+        <div class="w3-col m6 w3-padding-large w3-hide-small">
+            <img src="Imagens\mg.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" border="0"></a>
+        </div>
+        <div class="w3-col m6 w3-padding-large">
+            <h1>Bolo de Morango</h1><br>
+            <p class="w3-large">Massa Baunilha com Recheio de mouse de Morango, com pedaços de morangos!!</p>
+            <p>Temos nos tamanhos:</p>
+            <li>Pequeno - 1Kg</li>
+            <li>Médio - 2kg</li>
+            <li>Grande - 3kg</li>
+            <li>Extra Grande - 4kg</li>
+        </div>
+    </div>
+    <div class="w3-row w3-padding-64" id="nm">
+        <div class="w3-col m6 w3-padding-large w3-hide-small">
+            <img src="Imagens\nm.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" border="0"></a>
+        </div>
+        <div class="w3-col m6 w3-padding-large">
+            <h1>Bolo de Ninho de Morango</h1><br>
+            <p class="w3-large">Massa Baunilha com Recheio de mouse de Morango, polvilhado com Ninho!!</p>
+            <p>Temos nos tamanhos:</p>
+            <li>Pequeno - 1Kg</li>
+            <li>Médio - 2kg</li>
+            <li>Grande - 3kg</li>
+            <li>Extra Grande - 4kg</li>
+        </div>
+        <div class="w3-row w3-padding-64" id="brig">
+            <div class="w3-col m6 w3-padding-large w3-hide-small">
+                <img src="Imagens\brig.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" border="0"></a>
+            </div>
+            <div class="w3-col m6 w3-padding-large">
+                <h1>Bolo de Brigadeiro</h1><br>
+                <p class="w3-large">Massa Chocolate com Recheio de Brigadeiro!!</p>
+                <p>Temos nos tamanhos:</p>
+                <li>Pequeno - 1Kg</li>
+                <li>Médio - 2kg</li>
+                <li>Grande - 3kg</li>
+                <li>Extra Grande - 4kg</li>
+            </div>
+        </div>
+
+        <div class="container w3-grey">
+            <h2>Faça seu pepido aqui!</h2>
+
+        <form method="get" action=".">
+            <i class=" fa fa-user"></i>
+            <label>Nome:            
+            <input name="nome" type="text" id="nome" size="60"/></label><br />
+        </label>
+        <i class=" fa fa-envelope"></i>
+        <label>E-mail:
+            <input name="email" type="text" id="email" size="60"/></label><br />
+        </label>
+        <i class=" fa fa-phone"></i>
+        <label>Telefone:
+            <input name="tel" type="text" id="tel" size="11" maxlength="9"/></label><br />
+        </label>
+        <i class=" fa fa-map-marker"></i>
+        <label>Cep:
+        <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
+               onblur="pesquisacep(this.value);" /></label><br />
+        <label>Rua:
+        <input name="rua" type="text" id="rua" size="60" /></label><br />
+        <label>Número:
+            <input name="numero" type="text" id="numero" size="6" /></label><br />
+        <label>Bairro:
+        <input name="bairro" type="text" id="bairro" size="40" /></label><br />
+        <label>Cidade:
+        <input name="cidade" type="text" id="cidade" size="40" /></label><br />
+        <label>Estado:
+        <input name="uf" type="text" id="uf" size="2" /></label><br /> 
+        <i class=" fa fa-bars"></i>
+        <label>Selecione o tamanho do seu bolo:</label>
+                    
+                        <select id="tam" name="Tamanho">
+                            <option value="" disable selected>Selecione:</option>
+                            <option value="p">Pequeno</option>
+                            <option value="m">Médio</option>
+                            <option value="g">Grande</option>
+                            <option value="eg">Extra Grande</option>
+                        </select></br>
+                        
+                        <label>Data de Retirada:</label>
+                        <input id="date" type="date">                       
+                    
+                    </br>
+                    <i class="w3-large fa fa-pencil"></i>
+                        <label>Observações</label>
+                </br>
+                        <textarea name="obs" cols="60" rows="7"
+                            placeholder="Digite aqui as observações sobre o pedido..."></textarea>
+                  
+                    </br>
+                    <input type="submit" name="submit" value="Enviar" onclick="mensage()" />
+                    <input type="reset" name="excluir" value="Excluir" />
+                    <script language="JavaScript">
+                        var enviar;
+
+                        function mensage() {
+                            window.alert('Seu pedido foi encaminhado com sucesso, aguarde nosso contato telefônico!')
+                        }
+
+                    </script>
+            </form>
+        </div>
+
+        </br></br>
+        <p>Para maiores informações sobre os produtos, entre em contato conosco:</p>
+        <p><b>Telefone:(13) 99756-2017 ou Email: aliennesilvati@gmail.com</b></p>
+        <p>Praia Grande, Brasil</p>
+
+
+        <div class="container body-content">
+            <footer class="fixarRodape">
+                <i class="fa fa-facebook-official"></i>
+                <i class="fa fa-instagram"></i>
+                <i class="fa fa-snapchat"></i>
+                <i class="fa fa-pinterest-pt"></i>
+                <i class="fa fa-twitter"></i>
+                <i class="fa fa-linkedin"></i>
+            </footer>
+        </div>
+
+
+</body>
+
+</html>
