@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+    <title>Contato - Bolos Tarsa</title>
+</head>
+<body>
+    <div id="principal">
+        <div id="menu">
+            <a href="./index.html">Home</a>
+            <a href="./opcoes.html">Tipos de Bolos</a>           
+            <a href="./contato.html">Contato</a>
+        </div>
+        <div id="conteudo">       
+            <h2>Faça seu pedido aqui!</h2>
+
+            <form method="get" action="." id="form">
+                <i class=" fa fa-user"></i>
+                <label>Nome:   
+                    <input name="nome" type="text" id="nome" size="60" /></label>
+                    <br />
+                </label>
+                <br />
+                <i class=" fa fa-envelope"></i>
+                <label>E-mail:
+                    <input name="email" type="email" id="email" size="60" /></label><br />
+                </label>
+                <br />
+                <i class=" fa fa-phone"></i>
+                <label>Telefone:
+                    <input name="tel" type="tel" id="tel" size="11" maxlength="11" /></label><br />
+                </label>
+                <br />
+                <i class=" fa fa-map-marker"></i>
+                <label>Cep:
+                    <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
+                        onblur="pesquisacep(this.value);" /></label><br />
+                        <br />
+                <label>Rua:
+                    <input name="rua" type="text" id="rua" size="60" /></label><br />
+                    <br />
+                <label>Número:
+                    <input name="numero" type="text" id="numero" size="6" /></label><br />
+                    <br />
+                <label>Bairro:
+                    <input name="bairro" type="text" id="bairro" size="40" /></label><br />
+                    <br />
+                <label>Cidade:
+                    <input name="cidade" type="text" id="cidade" size="40" /></label><br />
+                    <br />
+                <label>Estado:
+                    <input name="uf" type="text" id="uf" size="2" /></label><br />
+                    <br />
+                <i class=" fa fa-bars"></i>
+                <label>Selecione o tamanho do seu bolo:</label>
+
+                <select id="tam" name="Tamanho">
+                    <option value="" disable selected>Selecione:</option>
+                    <option value="p">Pequeno</option>
+                    <option value="m">Médio</option>
+                    <option value="g">Grande</option>
+                    <option value="eg">Extra Grande</option>
+                </select></br>
+                <br />
+
+                <label>Data de Retirada:</label>
+                <input id="date" type="date">
+                <br />
+
+                </br>
+                <i class=" fa fa-pencil"></i>
+                <label>Observações</label>
+                </br>
+                <textarea name="obs" cols="60" rows="7"
+                    placeholder="Digite aqui as observações sobre o pedido..."></textarea>
+
+                </br>
+                <br />
+                <input id="botao" type="submit" name="submit" value="Enviar" onclick="mensage()" />
+                <input id="botao" type="reset" name="limpar" value="Limpar" />
+                <script language="JavaScript">
+                    var enviar;
+
+                    function mensage() {
+                        window.alert('Seu pedido foi encaminhado com sucesso, aguarde nosso contato telefônico!')
+                    }
+                </script>
+            </form>
+        </div>
+
+        </br></br>
+        
+
+
+
+
+ <script>
+
+        function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value = ("");
+            document.getElementById('bairro').value = ("");
+            document.getElementById('cidade').value = ("");
+            document.getElementById('uf').value = ("");
+
+        }
+
+        function meu_callback(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('rua').value = (conteudo.logradouro);
+                document.getElementById('bairro').value = (conteudo.bairro);
+                document.getElementById('cidade').value = (conteudo.localidade);
+                document.getElementById('uf').value = (conteudo.uf);
+
+            } //end if.
+            else {
+                //CEP não Encontrado.
+                limpa_formulário_cep();
+                alert("CEP não encontrado.");
+            }
+        }
+
+        function pesquisacep(valor) {
+
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
+
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+
+                //Valida o formato do CEP.
+                if (validacep.test(cep)) {
+
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('rua').value = "...";
+                    document.getElementById('bairro').value = "...";
+                    document.getElementById('cidade').value = "...";
+                    document.getElementById('uf').value = "...";
+
+
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+
+                    //Sincroniza com o callback.
+                    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep();
+            }
+        };
+
+    </script>
+
+<div id="rodape">
+    <p>Para maiores informações sobre os produtos, entre em contato conosco:</p>
+        <p><b>Telefone:(13) 99756-2017 ou Email: aliennesilvati@gmail.com</b></p>
+        <p>Praia Grande, Brasil</p>
+
+
+        <div class="container body-content">
+            <footer class="fixarRodape">
+                <i class="fa fa-facebook-official"></i>
+                <i class="fa fa-instagram"></i>
+                <i class="fa fa-snapchat"></i>
+                <i class="fa fa-pinterest-pt"></i>
+                <i class="fa fa-twitter"></i>
+                <i class="fa fa-linkedin"></i>
+            </footer>
+        </div>
+    <h4>Todos os direitos reservados.</h4>
+</div>
+</div>
+</body>
+</html>
